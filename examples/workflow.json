@@ -1,0 +1,23 @@
+{
+  "name": "report",
+  "steps": [
+    {
+      "id": "fetch",
+      "tool": "echo",
+      "inputs": { "text": "raw-data" }
+    },
+    {
+      "id": "transform",
+      "tool": "echo",
+      "inputs": { "text": "clean-data" },
+      "depends_on": ["fetch"]
+    },
+    {
+      "id": "summarize",
+      "tool": "add",
+      "inputs": { "a": 2, "b": 3 },
+      "depends_on": ["transform"],
+      "requires_approval": true
+    }
+  ]
+}
